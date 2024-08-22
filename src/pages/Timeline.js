@@ -38,7 +38,7 @@ const Timeline = () => {
     const addMovie = async () => {
       try {
         const response = await axios.post(
-          `http://localhost:8000/api/v1/movies/create`,
+          `https://letterboxd-be.onrender.com/api/v1/movies/create`,
           movie,
           {
             headers: {
@@ -58,7 +58,7 @@ const Timeline = () => {
       const fetchDBMovies = async () => {
         try {
           const response = await axios.get(
-            'http://localhost:8000/api/v1/movies',
+            'https://letterboxd-be.onrender.com/api/v1/movies',
             {
               headers: {
                 'Accept': 'application/json',
@@ -79,7 +79,7 @@ const Timeline = () => {
       const fetchUserMovie = async () => {
         try {
             const response = await axios.get(
-                'http://localhost:8000/api/v1/usermovie',
+                'https://letterboxd-be.onrender.com/api/v1/usermovie',
                 {   
                   params: {
                     per_page: 3

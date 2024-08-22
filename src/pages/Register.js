@@ -17,7 +17,7 @@ const Register = (props) => {
         e.preventDefault()
         try {
             const response = await axios.post(
-                'http://localhost:8000/api/v1/auth/register',
+                'https://letterboxd-be.onrender.com/api/v1/auth/register',
                 userData,
                 {
                     headers: {

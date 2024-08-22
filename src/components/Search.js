@@ -20,7 +20,7 @@ const Search = (props) => {
         const fetchDBMovie = async () => {
             try {
                 const response = await axios.get(
-                    `http://localhost:8000/api/v1/movies/${movie?.imdbID}`,
+                    `https://letterboxd-be.onrender.com/api/v1/movies/${movie?.imdbID}`,
                     {
                         headers: {
                             'Accept': 'application/json',
@@ -68,7 +68,7 @@ const Search = (props) => {
       const addMovie = async () => {
         try {
           const response = await axios.post(
-            `http://localhost:8000/api/v1/movies/create`,
+            `https://letterboxd-be.onrender.com/api/v1/movies/create`,
             movie,
             {
               headers: {
@@ -95,7 +95,7 @@ const Search = (props) => {
       const addFavouriteMovie = async () => {
         try {
             const response = await axios.post(
-                `http://localhost:8000/api/v1/userfavourites/${userId}`,
+                `https://letterboxd-be.onrender.com/api/v1/userfavourites/${userId}`,
                 favouriteMovie,
                 {
                     headers: {

@@ -13,7 +13,7 @@ const Watchlist = () => {
         const fetchWatchlist = async () => {
             try {
                 const response = await axios.get(
-                    `http://localhost:8000/api/v1/watchlist/user/${userId}`,
+                    `https://letterboxd-be.onrender.com/api/v1/watchlist/user/${userId}`,
                     {
                         headers: {
                             'Accept': 'application/json',

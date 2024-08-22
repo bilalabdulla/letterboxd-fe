@@ -16,7 +16,7 @@ const Profile = () => {
         const fetchUser = async () => {
             try {
                 const response = await axios.get(
-                    `http://localhost:8000/api/v1/users/${userId}`,
+                    `https://letterboxd-be.onrender.com/api/v1/users/${userId}`,
                     {
                         headers: {
                             'Accept': 'application/json',
@@ -37,7 +37,7 @@ const Profile = () => {
         const fetchUserMovies = async () => {
             try {
                 const response = await axios.get(
-                    `http://localhost:8000/api/v1/usermovie/${userId}`,
+                    `https://letterboxd-be.onrender.com/api/v1/usermovie/${userId}`,
                     {
                         headers: {
                             'Accept': 'application/json',
@@ -58,7 +58,7 @@ const Profile = () => {
         const fetchUserFavourites = async () => {
           try {
             const response = await axios.get(
-              `http://localhost:8000/api/v1/userfavourites/${userId}`,
+              `https://letterboxd-be.onrender.com/api/v1/userfavourites/${userId}`,
               {
                 headers: {
                   'Accept': 'application/json',

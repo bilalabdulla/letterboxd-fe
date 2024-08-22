@@ -11,7 +11,7 @@ const Films = () => {
         const fetchDBMovies = async () => {
           try {
             const response = await axios.get(
-              'http://localhost:8000/api/v1/movies',
+              'https://letterboxd-be.onrender.com/api/v1/movies',
               {
                 headers: {
                   'Accept': 'application/json',

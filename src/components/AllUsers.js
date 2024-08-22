@@ -11,7 +11,7 @@ const AllUsers = () => {
         const fetchAllUsers = async () => {
             try {
                 const response = await axios.get(
-                    `http://localhost:8000/api/v1/users`,
+                    `https://letterboxd-be.onrender.com/api/v1/users`,
                     {
                         headers: {
                             'Accept': 'application/json',

@@ -19,7 +19,7 @@ const UpdateProfile = () => {
       const fetchUserFavourites = async () => {
         try {
           const response = await axios.get(
-            `http://localhost:8000/api/v1/userfavourites/${userId}`,
+            `https://letterboxd-be.onrender.com/api/v1/userfavourites/${userId}`,
             {
               headers: {
                 'Accept': 'application/json',
@@ -40,7 +40,7 @@ const UpdateProfile = () => {
         e.preventDefault()
             try {
                 const response = await axios.patch(
-                    `http://localhost:8000/api/v1/users/${userId}`,
+                    `https://letterboxd-be.onrender.com/api/v1/users/${userId}`,
                     userData,
                     {
                         headers: {

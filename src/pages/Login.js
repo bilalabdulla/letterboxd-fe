@@ -19,7 +19,7 @@ const Login = (props) => {
         e.preventDefault()
         try {
             const response = await axios.post(
-                'http://localhost:8000/api/v1/auth/login',
+                'https://letterboxd-be.onrender.com/api/v1/auth/login',
                 userData,
                 {
                     headers: {

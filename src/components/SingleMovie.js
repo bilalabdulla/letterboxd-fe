@@ -54,7 +54,7 @@ const SingleMovie = () => {
         const fetchDBMovie = async () => {
             try {
                 const response = await axios.get(
-                    `http://localhost:8000/api/v1/movies/${imdbID}`,
+                    `https://letterboxd-be.onrender.com/api/v1/movies/${imdbID}`,
                     {
                         headers: {
                             'Accept': 'application/json',
@@ -75,7 +75,7 @@ const SingleMovie = () => {
         const fetchWatchlist = async (req, res) => {
             try {
                 const response = await axios.get(
-                    `http://localhost:8000/api/v1/watchlist/${userId}/${watchlist.movieId}`,
+                    `https://letterboxd-be.onrender.com/api/v1/watchlist/${userId}/${watchlist.movieId}`,
                     {
                         headers: {
                             'Accept': 'application/json',
@@ -98,7 +98,7 @@ const SingleMovie = () => {
         const fetchFavourite = async (req, res) => {
             try {
                 const response = await axios.get(
-                    `http://localhost:8000/api/v1/favourite/${userId}/${watchlist.movieId}`,
+                    `https://letterboxd-be.onrender.com/api/v1/favourite/${userId}/${watchlist.movieId}`,
                     {
                         headers: {
                             'Accept': 'application/json',
@@ -123,7 +123,7 @@ const SingleMovie = () => {
             try {
                 console.log('watchlist', watchlist);
                 const response = await axios.post(
-                    `http://localhost:8000/api/v1/watchlist/create`,
+                    `https://letterboxd-be.onrender.com/api/v1/watchlist/create`,
                     watchlist,
                     {
                         headers: {
@@ -141,7 +141,7 @@ const SingleMovie = () => {
         } else {
             try {
                 const response = await axios.patch(
-                    `http://localhost:8000/api/v1/watchlist/remove`,
+                    `https://letterboxd-be.onrender.com/api/v1/watchlist/remove`,
                     watchlist,
                     {
                         headers: {
@@ -164,7 +164,7 @@ const SingleMovie = () => {
             try {
                 console.log('favourite', watchlist);
                 const response = await axios.post(
-                    `http://localhost:8000/api/v1/favourite/create`,
+                    `https://letterboxd-be.onrender.com/api/v1/favourite/create`,
                     watchlist,
                     {
                         headers: {
@@ -182,7 +182,7 @@ const SingleMovie = () => {
         } else {
             try {
                 const response = await axios.patch(
-                    `http://localhost:8000/api/v1/favourite/remove`,
+                    `https://letterboxd-be.onrender.com/api/v1/favourite/remove`,
                     watchlist,
                     {
                         headers: {
@@ -206,7 +206,7 @@ const SingleMovie = () => {
         } else {
         try {
             const response = await axios.post(
-                'http://localhost:8000/api/v1/usermovie/create',
+                'https://letterboxd-be.onrender.com/api/v1/usermovie/create',
                 ({ userId: userId, id: watchlist.movieId, rating: rating, review: review }),
                 {
                     headers: {
@@ -227,7 +227,7 @@ const SingleMovie = () => {
         const fetchUserMovie = async () => {
             try {
                 const response = await axios.get(
-                    `http://localhost:8000/api/v1/usermovie/length/total/${userId}/${watchlist?.movieId}`,
+                    `https://letterboxd-be.onrender.com/api/v1/usermovie/length/total/${userId}/${watchlist?.movieId}`,
                     {
                         headers: {
                             'Accept': 'application/json',
@@ -249,7 +249,7 @@ const SingleMovie = () => {
         const fetchMovieRatings = async () => {
             try {
                 const response = await axios.get(
-                    `http://localhost:8000/api/v1/usermovie/movie/new/${watchlist?.movieId}`,
+                    `https://letterboxd-be.onrender.com/api/v1/usermovie/movie/new/${watchlist?.movieId}`,
                     {
                         headers: {
                             'Accept': 'application/json',
@@ -271,7 +271,7 @@ const SingleMovie = () => {
         const fetchTotalFavourites = async () => {
             try {
                 const response = await axios.get(
-                    `http://localhost:8000/api/v1/favourite/movie/new/${watchlist?.movieId}`,
+                    `https://letterboxd-be.onrender.com/api/v1/favourite/movie/new/${watchlist?.movieId}`,
                     {
                         headers: {
                             'Accept': 'application/json',
@@ -292,7 +292,7 @@ const SingleMovie = () => {
         const fetchTotalWatchlists = async () => {
             try {
                 const response = await axios.get(
-                    `http://localhost:8000/api/v1/watchlist/length/total/${watchlist?.movieId}`,
+                    `https://letterboxd-be.onrender.com/api/v1/watchlist/length/total/${watchlist?.movieId}`,
                     {
                         headers: {
                             'Accept': 'application/json',
