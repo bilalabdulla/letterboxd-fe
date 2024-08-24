@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom"
 
 
 const Register = (props) => {
-    const { setModal, toggleModal } = props
+    const { setModal, toggleModal, loading, setLoading} = props
     const [userData, setUserData] = useState({
         name: '',
         email: '',
@@ -15,6 +15,7 @@ const Register = (props) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
+        setLoading(true)
         try {
             const response = await axios.post(
                 'https://letterboxd-be.onrender.com/api/v1/auth/register',
@@ -32,12 +33,13 @@ const Register = (props) => {
             localStorage.setItem('letterEmail', response.data.user.email)
             localStorage.setItem('letterToken', token)
             console.log('User created: ', response.data);
+            setLoading(false)
             navigate('/home/timeline')
         } catch (error) {
             console.error('Error creating user', error)
+            setLoading(false)
         }
     }
-
 
     return (
     <div className="new-post-div">
@@ -85,6 +87,7 @@ const Register = (props) => {
         <a href="#" onClick={() => {setModal(false)
         toggleModal()}} className="register-link">Login now</a>
         </form>
+        
     </div>
   )
 }

@@ -9,6 +9,7 @@ const Home = () => {
     const token = localStorage.getItem('letterToken')
     const [modal, setModal] = useState() 
     const [newModal, setNewModal ] = useState()
+    const [loading, setLoading] = useState(false)
 
     const toggleModal = () => {
       setModal(!modal)
@@ -18,11 +19,11 @@ const Home = () => {
       setNewModal(!newModal)
     }
 
-    if (modal || newModal) {
-      document.body.classList.add('active-modal')
-    } else {
-      document.body.classList.remove('active-modal')
-    }
+    // if (modal || newModal) {
+    //   document.body.classList.add('active-modal')
+    // } else {
+    //   document.body.classList.remove('active-modal')
+    // }
 
   return (
     <div className="home">
@@ -49,7 +50,8 @@ const Home = () => {
           <div className="modal-content">
             <Login modal={modal}
             setModal={setModal}
-            toggleNewModal={toggleNewModal}/>
+            toggleNewModal={toggleNewModal} 
+            loading={loading} setLoading={setLoading}/>
           </div>
           </div> 
       )
@@ -61,10 +63,17 @@ const Home = () => {
           <div className="overlay" onClick={toggleNewModal}></div>
           <button onClick={toggleNewModal}>X</button>
           <div className="modal-content">
-            <Register modal={newModal} setModal={setNewModal} toggleModal={toggleModal}/>
+            <Register modal={newModal} setModal={setNewModal} 
+            toggleModal={toggleModal} loading={loading}
+            setLoading={setLoading}/>
           </div>
           </div>
       )
+    }
+
+    { 
+    loading && 
+      <div className="loading"></div>
     }
     </div>
   )

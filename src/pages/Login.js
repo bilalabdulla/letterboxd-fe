@@ -5,18 +5,20 @@ import { useNavigate } from "react-router-dom"
 
 
 const Login = (props) => {
-    const { modal, setModal, toggleNewModal } = props 
+    const { modal, setModal, toggleNewModal,
+        loading, setLoading
+     } = props 
     const [userData, setUserData ] = useState({
         email: '',
         password: ''
     })
-
     const userId = localStorage.getItem('letterUserId')
-
+    const [statusCode, setStatusCode] = useState()
     const navigate = useNavigate()
 
     const handleSubmit = async (e) => {
         e.preventDefault()
+        setLoading(true)
         try {
             const response = await axios.post(
                 'https://letterboxd-be.onrender.com/api/v1/auth/login',
@@ -34,10 +36,15 @@ const Login = (props) => {
             localStorage.setItem('letterName', response.data.user.name)
             localStorage.setItem('letterEmail', response.data.user.email)
             console.log('User logged in: ', response.data);
+            setLoading(false)
         } catch (error) {
-            console.log('Error logging in: ', error)
+            console.log('Error logging in: ', error.response.status)
+            setStatusCode(error.response.status)
+            setLoading(false)
         }
+        console.log('status' , statusCode);   
     }
+
 
     const handleChange = (e) => {
         const { name, value } = e.target
@@ -74,12 +81,17 @@ const Login = (props) => {
             onChange={handleChange}/>
         </div>
 
+        {(statusCode === 401)  && <p className="error">You entered a wrong password</p> }
+        {(statusCode === 402) && <p className="error">You haven't registered yet</p> }
+        {(statusCode === 404) && <p className="error">Please fill in all the details</p>}
+
         <button type="submit" className="login-btn">Log in</button>
 
         <p className="no-acnt-text">Don't have an Account?</p>
         <a href="#" onClick={() => {setModal(false)
             toggleNewModal()}} className="register-link">Register now</a>
     </form>
+
     </div>
   )
 }
