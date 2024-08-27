@@ -40,7 +40,15 @@ const Home = () => {
         <button onClick={(token) ? () => navigate('/home/timeline') : toggleModal} className="connected-btn">Sign In</button>
         </div>
         </div>
+
+        <div className="sample">
+            <h4>Sample Account</h4>
+            <p>Email: <span>ryan@gmail.com</span></p>
+            <p>Password: <span>hahaha</span></p>
+        </div>
     </div>
+
+
 
     {
       modal && (
